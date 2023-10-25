@@ -3,10 +3,21 @@ public class Main {
         final int a = 2; // Константа "a"
         long[][] matrixB = {
                 {1, 8, 4, 3},
-                {9, 5, 6, 5},
-                {4, 7, 1, 6},
-                {7, 8, 6, 9}
+                {9, 5, 1, 5},
+                {4, 7, 3, 7},
+                {7, 8, 6, 3}
         }; // Матриця B
+
+        int numRows = matrixB.length;
+        int numCols = matrixB[0].length; // Перша рядок матриці
+
+        // Перевірка, чи всі рядки мають однакову кількість елементів
+        for (int i = 1; i < numRows; i++) {
+            if (matrixB[i].length != numCols) {
+                System.out.println("Всі рядки матриці повинні мати однакову кількість елементів.");
+                return;
+            }
+        }
 
         // Множення матиці C = a * B
         long[][] matrixC = multiplyMatrixByConstant(matrixB, a);
